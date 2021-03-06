@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+}
+
+.high-scores {
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+main {
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+}
+
+.start {
+    margin: 0;
+    position: absolute;
+    height: 50px;
+    width: 120px;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
