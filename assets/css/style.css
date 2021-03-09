@@ -3,8 +3,13 @@
 }
 
 .high-scores {
+    display: inline-block;
     margin-left: 20px;
     margin-top: 20px;
+}
+
+header {
+    width: 100%;
 }
 
 main {
@@ -13,6 +18,15 @@ main {
 
 h1 {
     text-align: center;
+    padding-top: 50px;
+}
+
+h4 {
+    display: flex;
+    float: right;
+    position: relative;
+    align-content: flex-end;
+    padding-right: 20px;
 }
 
 .start {
