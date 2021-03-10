@@ -1,7 +1,8 @@
 var startButton = document.querySelector(".start");
 var timer = document.querySelector(".timer");
-var mainContainer = document.querySelector("main");
-var questionContainerEL = document.getElementById("questions-container");
+var mainContainerStart = document.getElementById("startGame");
+var mainContainerEnd = document.getElementById("endGame");
+var questionContainerEl = document.getElementById("questions-container");
 var answerButtonsEl = document.getElementById("answer-buttons");
 var questionEl = document.getElementById("question");
 
@@ -68,15 +69,24 @@ startButton.addEventListener("click", function(event) {
 });
 
 function startGame() {
-    mainContainer.classList.add("hide");
-    questionContainerEL.classList.remove("hide");
+    mainContainerStart.classList.add("hide");
+    questionContainerEl.classList.remove("hide");
     currentQuestionIndex = 0;
     nextQuestion();
 }
 
+function endGame() {
+    mainContainerEnd.classList.remove("hide");
+    questionContainerEl.classList.add("hide");
+}
+
 function nextQuestion() {
     resetContents();
-    displayQuestion(quizQuestions[currentQuestionIndex]);
+    if (currentQuestionIndex == quizQuestions.length) {
+        endGame();
+    } else {
+        displayQuestion(quizQuestions[currentQuestionIndex]);
+    }
 }
 
 function displayQuestion(question) {
@@ -97,11 +107,11 @@ function selectAnswer(e) {
     var selectedButton = e.target
     var correct = selectedButton.dataset.correct
     if (correct) {
-        alert("correct");
+        alert("Correct!");
         currentQuestionIndex += 1;
         nextQuestion();
     } else {
-        alert("Wrong")
+        alert("Wrong!")
         currentQuestionIndex += 1;
         counter -= 15;
         nextQuestion();
@@ -119,12 +129,14 @@ function startTimer() {
     timerId = setInterval(function() {
         counter--;
         timer.textContent = counter;
-
         console.log(counter); 
     }, 1000)
 }
 
 function stopTimer() {
-    clearInterval(timerId);
+    if (currentQuestionIndex = (quizQuestions.length - 1)) {
+        clearInterval(timerId);
+    }
+    
 }
 

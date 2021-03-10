@@ -15,8 +15,14 @@
         <h4>Timer: <span class="timer">75</span></h4>
     </header>
     <main>
-        <h1>How well do you know JavaScript</h1>
-        <button class="start">Start Quiz</button>
+        <div id="startGame">
+            <h1>How well do you know JavaScript</h1>
+            <button class="start">Start Quiz</button>
+        </div>
+        <div id="endGame" class="hide">
+            <h1>Enter your initials and save your score!</h1>
+            <input type="text" value="Initials" id="initialsInput">
+        </div>
     </main>
     <div id="questions-container" class="hide">
         <h2 id="question">Questions</h2>
