@@ -65,9 +65,7 @@ startButton.addEventListener("click", function(event) {
     //console.log("button clicked");
     startTimer();
     startGame();
-})
-
-
+});
 
 function startGame() {
     mainContainer.classList.add("hide");
@@ -77,6 +75,7 @@ function startGame() {
 }
 
 function nextQuestion() {
+    resetContents();
     displayQuestion(quizQuestions[currentQuestionIndex]);
 }
 
@@ -86,11 +85,35 @@ function displayQuestion(question) {
         var button = document.createElement("button");
         button.classList.add("answer-button")
         button.innerText = answer.text
+        if (answer.correct) {
+            button.dataset.correct = answer.correct
+        };
+        button.addEventListener('click', selectAnswer)
         answerButtonsEl.appendChild(button)
     });
 }
 
+function selectAnswer(e) {
+    var selectedButton = e.target
+    var correct = selectedButton.dataset.correct
+    if (correct) {
+        alert("correct");
+        currentQuestionIndex += 1;
+        nextQuestion();
+    } else {
+        alert("Wrong")
+        currentQuestionIndex += 1;
+        counter -= 15;
+        nextQuestion();
+    }
+}
 
+function resetContents() {
+    while (answerButtonsEl.firstChild) {
+        answerButtonsEl.removeChild
+        (answerButtonsEl.firstChild)
+    }
+}
 
 function startTimer() {
     timerId = setInterval(function() {
