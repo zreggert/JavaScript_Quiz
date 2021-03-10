@@ -56,6 +56,23 @@ h4 {
 }
 
 #answer-buttons {
+    margin: 0;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.answer-button {
     display: flex;
     flex-direction: column;
+    position: relative;
+    top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    padding: 10px;
+    background-color: purple;
+    color: white;
 }

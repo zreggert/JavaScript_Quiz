@@ -31,8 +31,12 @@ var quizQuestions = [
     },
     {
         question: "Arrays in JavaScript can be used to store ______.",
-        choices: ["numbers and strings", "other arrays", "booleans", "all of the above"],
-        answer: 3
+        answers: [
+            {text: "numbers and strings", correct: false},
+            {text: "other arrays", correct: false},
+            {text: "boolenas", correct: false},
+            {text: "all of the above", correct: true},
+        ]
     },
     {
         question: "String values must be enclosed within ______",
@@ -63,6 +67,8 @@ startButton.addEventListener("click", function(event) {
     startGame();
 })
 
+
+
 function startGame() {
     mainContainer.classList.add("hide");
     questionContainerEL.classList.remove("hide");
@@ -77,12 +83,14 @@ function nextQuestion() {
 function displayQuestion(question) {
     questionEl.innerText = question.question;
     question.answers.forEach(answer => {
-        var button = document.createElement("button")
+        var button = document.createElement("button");
+        button.classList.add("answer-button")
         button.innerText = answer.text
-        answerButtonsEl.appendChild(button);
-    })
-    
+        answerButtonsEl.appendChild(button)
+    });
 }
+
+
 
 function startTimer() {
     timerId = setInterval(function() {
