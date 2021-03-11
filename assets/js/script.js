@@ -5,6 +5,7 @@ var mainContainerEnd = document.getElementById("endGame");
 var questionContainerEl = document.getElementById("questions-container");
 var answerButtonsEl = document.getElementById("answer-buttons");
 var questionEl = document.getElementById("question");
+var greatJobEl = document.getElementById("greatJob")
 
 var currentQuestionIndex;
 
@@ -76,14 +77,17 @@ function startGame() {
 }
 
 function endGame() {
+    resetContents();
     mainContainerEnd.classList.remove("hide");
     questionContainerEl.classList.add("hide");
 }
+//     greatJobEl.textContent = 
+// }
 
 function nextQuestion() {
     resetContents();
     if (currentQuestionIndex == quizQuestions.length) {
-        endGame();
+        stopTimer();
     } else {
         displayQuestion(quizQuestions[currentQuestionIndex]);
     }
@@ -113,7 +117,7 @@ function selectAnswer(e) {
     } else {
         alert("Wrong!")
         currentQuestionIndex += 1;
-        counter -= 15;
+        counter -= 10;
         nextQuestion();
     }
 }
@@ -129,14 +133,15 @@ function startTimer() {
     timerId = setInterval(function() {
         counter--;
         timer.textContent = counter;
-        console.log(counter); 
+        console.log(counter);
+        if (counter === 0) {
+            stopTimer();
+        } 
     }, 1000)
 }
 
 function stopTimer() {
-    if (currentQuestionIndex = (quizQuestions.length - 1)) {
-        clearInterval(timerId);
-    }
-    
+    clearInterval(timerId);
+    endGame();
 }
 
