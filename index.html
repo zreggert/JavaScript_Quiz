@@ -20,9 +20,12 @@
             <button class="start">Start Quiz</button>
         </div>
         <div id="endGame" class="hide">
-            <h1 id="greatJob"></h1>
+            <h1 id="awardedScore"></h1>
             <h3>Enter your initials and save your score!</h3>
-            <input type="text" value="Initials" id="initialsInput">
+            <form action="high_scores.html" id="initialsInput">
+                <input type="text"  id="userInitials">
+                <input type="submit" value="Submit" id="submit">
+            </form>
         </div>
     </main>
     <div id="questions-container" class="hide">

@@ -5,12 +5,14 @@ var mainContainerEnd = document.getElementById("endGame");
 var questionContainerEl = document.getElementById("questions-container");
 var answerButtonsEl = document.getElementById("answer-buttons");
 var questionEl = document.getElementById("question");
-var greatJobEl = document.getElementById("greatJob")
+var awardedScoreEl = document.getElementById("awardedScore");
+var submitButton = document.getElementById("submit");
+var userInitials = document.getElementById("userInitials");
 
 var currentQuestionIndex;
-
 var timerId;
 var counter = 75;
+
 
 var quizQuestions = [
     {
@@ -69,6 +71,18 @@ startButton.addEventListener("click", function(event) {
     startGame();
 });
 
+submitButton.addEventListener("click", function(event) {
+
+    var userScore = {
+        user: userInitials.value,
+        score: counter,
+    }
+
+    localStorage.setItem("userScore", JSON.stringify(userScore));
+    console.log("user score has been stringified")
+
+})
+
 function startGame() {
     mainContainerStart.classList.add("hide");
     questionContainerEl.classList.remove("hide");
@@ -80,9 +94,9 @@ function endGame() {
     resetContents();
     mainContainerEnd.classList.remove("hide");
     questionContainerEl.classList.add("hide");
+    awardedScoreEl.textContent = `You scored a ${counter}!`
+    
 }
-//     greatJobEl.textContent = 
-// }
 
 function nextQuestion() {
     resetContents();
