@@ -71,16 +71,6 @@ startButton.addEventListener("click", function(event) {
     startGame();
 });
 
-submitButton.addEventListener("click", function(event) {
-    var userScore = {
-        user: userInitials.value,
-        score: counter,
-    }
-    
-    localStorage.setItem("userScore", JSON.stringify(userScore));
-    console.log("user score has been stringified")
-
-})
 
 function startGame() {
     mainContainerStart.classList.add("hide");
@@ -91,11 +81,20 @@ function startGame() {
 
 function endGame() {
     resetContents();
+    timer.textContent = counter;
     mainContainerEnd.classList.remove("hide");
     questionContainerEl.classList.add("hide");
-    awardedScoreEl.textContent = `You scored a ${counter}!`
-    
+    awardedScoreEl.textContent = `You scored a ${counter}!`;
 }
+
+submitButton.addEventListener("click", function(event) {
+    var userScore = {
+        user: userInitials.value,
+        score: counter,
+    }
+    
+    localStorage.setItem("userScore", JSON.stringify(userScore));
+})
 
 function nextQuestion() {
     resetContents();
