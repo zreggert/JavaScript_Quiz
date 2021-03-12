@@ -72,12 +72,11 @@ startButton.addEventListener("click", function(event) {
 });
 
 submitButton.addEventListener("click", function(event) {
-
     var userScore = {
         user: userInitials.value,
         score: counter,
     }
-
+    
     localStorage.setItem("userScore", JSON.stringify(userScore));
     console.log("user score has been stringified")
 
