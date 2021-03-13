@@ -8,11 +8,11 @@ var questionEl = document.getElementById("question");
 var awardedScoreEl = document.getElementById("awardedScore");
 var submitButton = document.getElementById("submit");
 var userInitials = document.getElementById("userInitials");
-
 var currentQuestionIndex;
 var timerId;
 var counter = 75;
-
+//var highScores = [];
+var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
 var quizQuestions = [
     {
@@ -62,7 +62,6 @@ var quizQuestions = [
     },
 ];
 
-
 timer.textContent = counter;
 
 startButton.addEventListener("click", function(event) {
@@ -71,6 +70,15 @@ startButton.addEventListener("click", function(event) {
     startGame();
 });
 
+submitButton.addEventListener("click", function(event) {
+    var userScore = {
+        user: userInitials.value,
+        score: counter,
+    };
+    highScores.push(userScore);
+    console.log(highScores);
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+})
 
 function startGame() {
     mainContainerStart.classList.add("hide");
@@ -87,14 +95,6 @@ function endGame() {
     awardedScoreEl.textContent = `You scored a ${counter}!`;
 }
 
-submitButton.addEventListener("click", function(event) {
-    var userScore = {
-        user: userInitials.value,
-        score: counter,
-    }
-    
-    localStorage.setItem("userScore", JSON.stringify(userScore));
-})
 
 function nextQuestion() {
     resetContents();

@@ -1,12 +1,22 @@
-var list = document.getElementById("scoresList");
+var scoresListEl = document.getElementById("scoresList");
+var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+var clearButton = document.getElementById("clear-btn");
 
-function renderScores() {
-    var lastScore = JSON.parse(localStorage.getItem("userScore"));
-    if (lastScore !== null) {
-      var score = document.createElement("li");
-      score.textContent = lastScore.user + " "  + lastScore.score
-      list.appendChild(score);
+
+scoresListEl.innerHTML = highScores
+  .map(score => {
+    return `<li class="high-scores">${score.user} ${score.score}`
+  })
+  .join("");
+
+  function resetScoreBoard() {
+    while (scoresListEl.firstChild) {
+        scoresListEl.removeChild
+        (scoresListEl.firstChild)
     }
-}
+  }
 
-renderScores();
+  clearButton.addEventListener("click", function(event) {
+    localStorage.clear();
+    resetScoreBoard();
+  })
