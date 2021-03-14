@@ -4,94 +4,69 @@
     box-sizing: border-box;
 }
 
-.high-scores {
-    display: inline-block;
-    margin-left: 20px;
-    margin-top: 20px;
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
-header {
-    width: 100%;
+.score-time {
+    justify-content: start;
 }
 
 main {
     width: 100%;
-}
-
-h1 {
     text-align: center;
-    padding-top: 50px;
+    padding: 50px;
 }
 
-h4 {
-    display: flex;
-    float: right;
-    position: relative;
-    align-content: flex-end;
-    padding-right: 20px;
+.startGame {
+    text-align: center;
 }
 
-h3 {
+.endGame {
     text-align: center;
 }
 
 .start {
-    margin: 0;
-    position: absolute;
-    height: 50px;
-    width: 120px;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    background-color: purple;
+    color: white;
+    border-radius: 4px;
+}
+
+.qAndA {
+    text-align: start;
+    margin-left: 300px;
+    width: 50%;
+}
+
+#answer-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+h3 {
+    border-top: 2px solid rgba(128, 128, 128, 0.466);
+}
+
+.answer-button {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    margin: 10px; 
+    background-color: purple;
+    color: white;
+    border-radius: 4px;
+}
+
+#submit {
+    background-color: purple;
+    color: white;
+    border-radius: 4px;
 }
 
 .hide {
     display: none;
 }
 
-#questions-container {
-    margin: 0;
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
-
-#answer-buttons {
-    margin: 0;
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
-
-.answer-button {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    top: 200px;
-    width: 200px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 30px;
-    padding: 15px;
-    background-color: purple;
-    color: white;
-    
-}
-
-#initialsInput {
-    margin: 0;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    height: 30px;
-    width: 120px;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}

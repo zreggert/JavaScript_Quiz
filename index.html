@@ -10,9 +10,12 @@
 <body>
     <header>
         <div class="high-scores">
-            <a href="../high_scores.html">View High Scores</a>
+            <h4 class="h4"><a href="../high_scores.html">View High Scores</a></h4>
         </div>
-        <h4>Timer: <span class="timer">75</span></h4>
+        <div class="score-time">
+            <h4>Timer: <span class="timer">75</span></h4>
+        </div>
+        
     </header>
     <main>
         <div id="startGame">
@@ -21,23 +24,29 @@
         </div>
         <div id="endGame" class="hide">
             <h1 id="awardedScore"></h1>
-            <h3>Enter your initials and save your score!</h3>
+            <h4>Enter your initials and save your score!</h4>
             <form action="high_scores.html" id="initialsInput">
                 <input type="text"  id="userInitials">
                 <input type="submit" value="Submit" id="submit">
             </form>
         </div>
+        <div class="qAndA">
+            <div id="questions-container" class="hide">
+                <h2 id="question">Questions</h2>
+            </div>
+            <div id="answer-buttons">
+            </div>
+            <div id="wrong-or-right">
+            </div>
+        </div>
     </main>
-    <div id="questions-container" class="hide">
-        <h2 id="question">Questions</h2>
-    </div>
-    <div id="answer-buttons">
-    </div>
-    <h3 id="wrong-or-right">
-        
-    </h3>
+
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <script src="./assets/js/script.js"></script>
+    
 
 </body>
 </html>

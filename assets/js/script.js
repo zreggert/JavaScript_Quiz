@@ -13,6 +13,7 @@ var timerId;
 var counter = 75;
 //var highScores = [];
 var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+var wrongOrRight = document.getElementById("wrong-or-right");
 
 var quizQuestions = [
     {
@@ -123,15 +124,29 @@ function selectAnswer(e) {
     var selectedButton = e.target
     var correct = selectedButton.dataset.correct
     if (correct) {
-        alert("Correct!");
+        wasCorrect();
         currentQuestionIndex += 1;
         nextQuestion();
     } else {
-        alert("Wrong!")
+        wasWrong();
         currentQuestionIndex += 1;
         counter -= 10;
         nextQuestion();
     }
+}
+
+function wasCorrect() {
+    wrongOrRight.innerHTML = "<h3>Correct!</h3>"
+    setTimeout(function(){
+        wrongOrRight.innerHTML="";
+   },1000);
+}
+
+function wasWrong() {
+    wrongOrRight.innerHTML = "<h3>Wrong!</h3>"
+    setTimeout(function(){
+        wrongOrRight.innerHTML="";
+   },1000);
 }
 
 function resetContents() {
