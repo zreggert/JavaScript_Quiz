@@ -8,3 +8,7 @@ I have attached pictures of the landing page for the quiz as well as the picture
 
 ![start of the quiz](./assets/images/quiz_start.png)
 ![high scores page](./assets/images/quiz_highscores.png)
+
+Deployed page:
+https://zreggert.github.io/JavaScript_Quiz/
+
