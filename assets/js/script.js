@@ -77,7 +77,7 @@ submitButton.addEventListener("click", function(event) {
         score: counter,
     };
     highScores.push(userScore);
-    console.log(highScores);
+    highScores.sort((a, b) => b.score - a.score);
     localStorage.setItem("highScores", JSON.stringify(highScores));
 })
 
