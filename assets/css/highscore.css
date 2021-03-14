@@ -1,0 +1,30 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.list-container {
+    margin-left: 450px;
+}
+
+.btn {
+    background-color: purple;
+    color: white;
+    border-radius: 4px;
+}
+
+h1 {
+    margin-top: 70px;
+}
+
+#scoresList {
+    background-color: rgba(206, 62, 206, 0.377);
+    padding-inline-start: 0;
+    list-style: none;
+    width: 300px;
+}
+
+li {
+    border: 3px solid white;
+}

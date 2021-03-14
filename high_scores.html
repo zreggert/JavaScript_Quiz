@@ -5,16 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS Quiz High Scores</title>
+    <link rel="stylesheet" href="./assets/css/highscore.css">
 </head>
 <body>
-    <header>
-        <a href="index.html">Back to Quiz</a>
-    </header>
-    <h1>High Scores</h1>
-    <ul id="scoresList">
-
-    </ul>
-    <button id="clear-btn">Clear Scores</button>
+    <div class="list-container">
+        <h1>High Scores</h1>
+        <ul id="scoresList">
+        </ul>
+        <button class="btn" id="return-to-quiz" onclick="location.href='./index.html'">Return to Quiz</button>
+        <button class="btn" id="clear-btn">Clear Scores</button>
+    </div>
+    
     <script src="./assets/js/highscore.js"></script>
 </body>
 </html>
